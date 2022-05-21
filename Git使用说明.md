@@ -32,13 +32,13 @@
 ## git基本理论
 ### 工作区域
 git本地有三个工作区域：工作目录(Working Directory)、暂存区(Stage/Index)、资源库(Repository/Git Directory)。<br>如果在加上远程的git仓库(Remote Directory)就可以分为四个工作区域。<br>
-<img src="nodejs/images/git工作流程.jpg" width="40%" height="40%"><br>
+<img src="nodejs/images/git工作流程.jpg" width="50%" height="50%"><br>
 - Workspace&nbsp;:&emsp;工作区，就是你平时存放项目代码的地方
 - Index/Stage&nbsp;:&emsp;暂存区，用于临时放你的改动，事实上它只是一个文件，保存即将提交到文件列表信息
 - Repository&nbsp;:&emsp;仓库区(或本地仓库)，就是安全存放数据的位置，这里面有你提交到所有版本的数据。<br>其中HEAD指向最新放入仓库的版本
 - Remote&nbsp;:&emsp;远程仓库，托管代码的服务器，可以简单的认为是你项目中的一台电脑用于远程交换数据
 
-<img src="nodejs/images/git文件结构.jpg" width="40%" height="40%"><br>
+<img src="nodejs/images/git文件结构.jpg" width="50%" height="50%"><br>
 
 - Directory&nbsp;:&emsp;使用Git管理的一个目录，也就是一个仓库，包含我们的工作空间和Git的管理空间
 - Workspace&nbsp;:&emsp;需要通过Git进行版本控制的目录和文件，这些目录和文件组成了工作空间。
@@ -54,7 +54,7 @@ git本地有三个工作区域：工作目录(Working Directory)、暂存区(Sta
 
 因此，git管理的文件有三种状态&nbsp;:&emsp;已修改(modified)、已暂存(staged)、已提交(committed)
 
-<img src="nodejs/images/git操作流程.jpg" width="40%" height="40%"><br>
+<img src="nodejs/images/git操作流程.jpg"><br>
 
 # Git项目搭建
 创建本地仓库的方法有两种&nbsp;:&emsp;一种是创建全新的仓库，另一种是克隆远程仓库。
@@ -83,3 +83,13 @@ git本地有三个工作区域：工作目录(Working Directory)、暂存区(Sta
 
 提交暂存区中的内容到本地仓库 -m 提交信息<br>
 `git commit -m "消息内容"`
+
+## 忽略文件 .gitignore
+<img src="nodejs/images/忽略文件.jpg"><br>
+
+## 使用GitHub
+1. 注册GitHub
+2. 设置本机绑定SSH公钥，实现免密码登录
+3. 将公钥信息public key添加到github账户中即可<br>
+    `ssh-keygen -t rsa`#-t rsa加密生成
+4. 在github中创建一个自己的仓库
