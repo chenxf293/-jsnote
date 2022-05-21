@@ -54,42 +54,47 @@ git本地有三个工作区域：工作目录(Working Directory)、暂存区(Sta
 
 因此，git管理的文件有三种状态&nbsp;:&emsp;已修改(modified)、已暂存(staged)、已提交(committed)
 
-<img src="nodejs/images/git操作流程.jpg"><br>
+<img src="nodejs/images/git操作流程.jpg" width="50%" height="50%"><br>
 
 # Git项目搭建
 创建本地仓库的方法有两种&nbsp;:&emsp;一种是创建全新的仓库，另一种是克隆远程仓库。
 1. 创建全新的仓库，需要用Git管理的项目的根目录执行
-
-    #&emsp;在当前目录新建一个git代码库<br>
-    &emsp;`git init`
+    `git init`&emsp;&emsp;#&ensp;在当前目录新建一个git代码库<br>
 2. 执行后可以看到，仅仅在项目目录多出了一个.git目录，关于版本等的所有信息都在这个目录里面
 
 #### 克隆远程仓库
 1. 另一种方式是克隆远程目录，将远程服务器上的仓库完全镜像一份至本地
 
-    #&emsp;克隆一个项目和它的整个代码历史(版本信息)
-    &emsp;`git clone [url]`
+   
+    `git clone [url]`&emsp;&emsp;#&ensp;克隆一个项目和它的整个代码历史(版本信息)
 
 
 # Git文件操作
-查看指定文件状态<br>
-`git status [filename]`
+`git status [filename]`&emsp;&emsp;#&ensp;查看指定文件状态<br>
 
-查看所有文件状态<br>
-`git status`
+`git status`&emsp;&emsp;#&ensp;查看所有文件状态<br>
 
-添加所有文件到暂存区<br>
-`git add .`
+`git add .`&emsp;&emsp;#&ensp;添加所有文件到暂存区<br>
 
-提交暂存区中的内容到本地仓库 -m 提交信息<br>
-`git commit -m "消息内容"`
+`git commit -m "消息内容"`&emsp;&emsp;#&ensp;提交暂存区中的内容到本地仓库 -m 提交信息<br>
 
 ## 忽略文件 .gitignore
-<img src="nodejs/images/忽略文件.jpg"><br>
+<img src="nodejs/images/忽略文件.jpg" width="50%" height="50%"><br>
 
 ## 使用GitHub
 1. 注册GitHub
 2. 设置本机绑定SSH公钥，实现免密码登录
 3. 将公钥信息public key添加到github账户中即可<br>
-    `ssh-keygen -t rsa`#-t rsa加密生成
+    `ssh-keygen -t rsa`&emsp;&emsp;#&ensp;-t rsa加密生成
 4. 在github中创建一个自己的仓库
+
+## Git中常用指令
+
+`git branch`&emsp;&emsp;#&ensp;列出所有本地分支<br>
+`git branch -r`&emsp;&emsp;#&ensp;列出所有远程分支<br>
+`git branch [branch-name]`&emsp;&emsp;#&ensp;新建一个分支，但依然停留在当前分支<br>
+`git chechout -b [branch]`&emsp;&emsp;#&ensp;新建一个分支，并切换到该分支<br>
+`git merge [branch]`&emsp;&emsp;#&ensp;合并指定分支到当前分支<br>
+`git branch -d [branch-name]`&emsp;&emsp;#&ensp;删除分支<br>
+`git push origin --delete [branch]`&emsp;&emsp;#&ensp;删除远程分支<br>
+`git branch -dr [remote/branch]`&emsp;&emsp;#&ensp;删除远程分支<br>
