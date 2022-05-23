@@ -1,0 +1,102 @@
+
+        * {
+        margin: 0;
+        padding: 0;
+        }
+
+        .container {
+        display: flex;
+        background-color: red;
+        height: 850px;
+        }
+
+        .container__sidebar {
+        width: 10%;
+        height: 100%;
+        background-color: aqua;
+        position: absolute;
+        z-index: 100;
+        }
+
+        .container__main {
+        /* Take the remaining width */
+        flex: 1;
+        /* Make it scrollable */
+        overflow: auto;
+        background-color: blue;
+        height: 100%;
+        position: relative;
+        }
+
+        .container_bottom {
+        background-color: black;
+        height: 10%;
+        width: 100%;
+        position: absolute;
+        z-index: 100;
+        bottom: 0;
+        left: 0;
+        }
+
+        .btn {
+        margin-top: 20px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        }
+
+        .catalog {
+        width: 20%;
+        height: 800px;
+        background-color: rgb(249, 11, 181);
+        /* position: absolute; */
+        /* z-index: 100; */
+        display: none;
+        position: relative;
+        overflow: hidden;
+        }
+
+        #thumbnail_container {
+        border: 1px solid black;
+        height: 800px;
+        position: relative;
+        overflow: hidden;
+        overflow-y: scroll;
+        text-align: center;
+        background-color: gray;
+        }
+
+        .change {
+        width: 20%;
+        height: 100%;
+        background-color: rgb(249, 11, 181);
+        position: absolute;
+        z-index: 100;
+        }
+
+        #page1 {
+        background-color: blueviolet;
+        margin-left: 10%;
+        width: 45%;
+        height: 100%;
+        display: inline-block;
+        }
+
+        #page2 {
+        background-color: chartreuse;
+        width: 44%;
+        height: 100%;
+        display: inline-block;
+        }
+
+        #audio {
+        margin-top: 20px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        }
+
+        #zoomIn {
+        margin-top: 300px;
+        }
+    
