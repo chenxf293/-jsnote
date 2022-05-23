@@ -1,3 +1,55 @@
+alert(msg)  浏览器弹出警示框
+console(msg) 浏览器控制台打印输出信息
+prompt(info) 浏览器弹出输入框，用户可以输入
+
+var 声明变量    variable变量   不确定属于哪种类型
+变量数据类型只有程序在运行过程中，根据等号右边的值来确定
+声明多个变量
+var a=
+    b=
+    c=
+
+
+数据类型
+默认值         0     false     ""    undefined  null 
+简单数据类型 Number, Boolean, String, Undefined, Null
+0xffff 16进制
+Infinity 无穷大  -Infinity 无穷小
+NaN 非数字
+
+isNaN()判断是否为非数字类型
+
+字符串类型引号嵌套
+JS可以用单引号嵌套双引号，或者用双引号嵌套单引号
+
+转义符
+\n          换行符
+\\          \
+\'          '
+\"          "
+\t          tab缩进
+\b          空格blank
+
+Boolean类型参与计算 true 为 1， false 为 0
+undefined 和数字相加结果是NaN，和字符串相加是为字符相加
+null 数学相加是为0，和字符相加为字符相加
+
+
+数据；类型转换
+
+toString()
+String() 强制转换
+加号拼接的字符串都是字符串类型
+
+parseInt(string)
+parseFloat(string)
+Number(string)强制转换
+js隐式转换(- * /)  利用算术运算隐式转换为数值型 '12'-0
+
+Boolean() 其他类型转换成布尔值
+
+
+
 自增运算
 
 后自增

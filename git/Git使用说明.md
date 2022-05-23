@@ -70,31 +70,68 @@ git本地有三个工作区域：工作目录(Working Directory)、暂存区(Sta
 
 
 # Git文件操作
-`git status [filename]`&emsp;&emsp;#&ensp;查看指定文件状态<br>
+`git status [filename]`&emsp;&emsp;#&ensp;查看指定文件状态
 
-`git status`&emsp;&emsp;#&ensp;查看所有文件状态<br>
 
-`git add .`&emsp;&emsp;#&ensp;添加所有文件到暂存区<br>
+`git status`&emsp;&emsp;#&ensp;查看所有文件状态
 
-`git commit -m "消息内容"`&emsp;&emsp;#&ensp;提交暂存区中的内容到本地仓库 -m 提交信息<br>
+
+`git add .`&emsp;&emsp;#&ensp;添加所有文件到暂存区
+
+
+`git commit -m "消息内容"`&emsp;&emsp;#&ensp;提交暂存区中的内容到本地仓库 -m 提交信息
+
 
 ## 忽略文件 .gitignore
-<img src="nodejs/images/忽略文件.jpg" width="50%" height="50%"><br>
+<img src="nodejs/images/忽略文件.jpg" width="50%" height="50%">
+
 
 ## 使用GitHub
 1. 注册GitHub
 2. 设置本机绑定SSH公钥，实现免密码登录
-3. 将公钥信息public key添加到github账户中即可<br>
+3. 将公钥信息public key添加到github账户中即可
+
     `ssh-keygen -t rsa`&emsp;&emsp;#&ensp;-t rsa加密生成
 4. 在github中创建一个自己的仓库
 
 ## Git中常用指令
 
-`git branch`&emsp;&emsp;#&ensp;列出所有本地分支<br>
-`git branch -r`&emsp;&emsp;#&ensp;列出所有远程分支<br>
-`git branch [branch-name]`&emsp;&emsp;#&ensp;新建一个分支，但依然停留在当前分支<br>
-`git chechout -b [branch]`&emsp;&emsp;#&ensp;新建一个分支，并切换到该分支<br>
-`git merge [branch]`&emsp;&emsp;#&ensp;合并指定分支到当前分支<br>
-`git branch -d [branch-name]`&emsp;&emsp;#&ensp;删除分支<br>
-`git push origin --delete [branch]`&emsp;&emsp;#&ensp;删除远程分支<br>
-`git branch -dr [remote/branch]`&emsp;&emsp;#&ensp;删除远程分支<br>
+`git branch`&emsp;&emsp;#&ensp;列出所有本地分支
+
+`git branch -r`&emsp;&emsp;#&ensp;列出所有远程分支
+
+`git branch [branch-name]`&emsp;&emsp;#&ensp;新建一个分支，但依然停留在当前分支
+
+`git chechout -b [branch]`&emsp;&emsp;#&ensp;新建一个分支，并切换到该分支
+
+`git merge [branch]`&emsp;&emsp;#&ensp;合并指定分支到当前分支
+
+`git branch -d [branch-name]`&emsp;&emsp;#&ensp;删除分支
+
+`git push origin --delete [branch]`&emsp;&emsp;#&ensp;删除远程分支
+
+`git branch -dr [remote/branch]`&emsp;&emsp;#&ensp;删除远程分支
+
+
+## git fetch + merge:获取最新代码到本地，然后手动合并分支
+<br>
+<br>
+
+`git remote -v`&emsp;&emsp;#&ensp;查询当前远程的版本
+
+//获取最新代码到本地(本地当前分支为[branch],获取的远端的分支为[origin/branch])
+
+`git fetch origin master`&emsp;&emsp;#&ensp;获取远端的[origin/master]分支
+
+`git fetch origin dev`&emsp;&emsp;#&ensp;获取远端的[origin/dev]分支
+
+//查看版本差异
+
+`git log -p master..origin/master`&emsp;&emsp;#&ensp;查看本地master与远端origin/master的版本差异
+
+`git log -p dev..origin/dev`&emsp;&emsp;#&ensp;查看本地与远端origin/dev的版本差异
+
+//合并最新代码到本地分支
+
+`git merge origin/master`&emsp;&emsp;#&ensp;合并远程端分支origin/master到当前分支
+`git merge origin/dev&emsp;&emsp;#&ensp;合并远端分支origin/dev到当前分支
