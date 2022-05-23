@@ -1,0 +1,11 @@
+Dom
+文档接口模型
+
+获取元素
+
+document.getElementById(id)
+console.dir()  返回元素对象，更好地查看里面的属性和方法
+
+document.getElementByTagName(tagName)
+
+document.getElementByClassName(className)
