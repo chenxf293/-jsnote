@@ -86,11 +86,113 @@
 ## npm与包
     包基于内置模块封装出来的，提高了更高级，更方便的api，极大提高了开发效率
     IT公司  npm, Inc.
+
     www.npmjs.com
+
     是全球最大的包共享平台
     registry.npmjs.org服务器可下载我们需要的包
 
     Node Package Manager
+
     npm包管理工具
 
+    不要手动修改node_modules或packa-lock.json文件中的任何代码，npm包管理工具会自动维护他们
 
+    npm install package@版本号  来下载指定的版本
+
+    包的语义化版本规划
+    例 2.24.0 
+        1. 大版本
+        2. 功能版本
+        3. Bug修复版本
+        只要前面版本号增长了，则后面的版本号归零
+
+    包管理配置文件
+        npm规定，在项目根目录中，必须提供一个叫做package.json的包管理配置文件。用来记录与项目有关的一些配置信息
+
+    多人协作如何记录项目中安装了那些包
+        在项目根目录中，创建一个叫做package.json的配置文件，即可用来记录项目中安装了哪些包。从而方便剔除node_modules目录之后，在团队成员之间共享项目的源代码。
+
+    快速创建package.json
+
+        npm init -y
+
+    dependences节点
+
+        专门用来记录使用npm install命令安装了哪些包
+
+    npm install 
+
+        可以一次性把package.json里dependencies节点中的所有包下载下来
+
+    devDependencies
+        如果某些包只在项目开发阶段会用到，在项目上线线之后不会用到，则建议把这些包记录到devDependencies
+        某些包在开发和项目上线之后都需要用到，则建议把这些包记录到dependencies
+
+    安装指定的包，并记录到devDependencies节点中
+
+        npm i 包名 -D
+
+        完整写法
+
+        npm install 包名 --save-dev-
+
+    切换npm的下包镜像源
+
+        查看当前的下包镜像源 
+
+            npm config get registry
+        
+        将下包的镜像源切换到指定镜像源地址
+
+            npm config set registry=https://registry.npmjs.org/
+
+    为了更方便切换下包的镜像源，安装nrm这个小工具，利用nrm提供的终端命令，可以快速查看和切换下包的镜像源
+        
+        通过npm包管理器，将nrm安装为全局可用的工具
+
+            npm i nrm -g
+        
+        查看所有可用的镜像源
+
+            nrm ls
+
+        将下包的镜像源切换为taobao镜像
+
+            nrm use taobao
+
+        i5ting_toc
+            是一个可以把md文档转为html页面的小工具
+            安装为全局包
+
+                npm install -g i5ting_toc
+            
+            调用 i5ting_toc，轻松实现 md 转 html 的功能
+
+                i5ting_toc -f 要转换的md文件路径 -o
+
+        规范的包结构
+
+            1. 包必须以单独的目录而存在
+            2. 包的顶级目录下要必须包含package.json这个包管理配置文件
+            3. package.json中必须包含name,version,main这三个属性，分别代表包的名字，版本号，包的入口
+
+## 开发属于自己的包
+1. 新建 包名 文件夹，作为包的根目录
+2. 在包文件夹中，新建如下三个文件：
+    - package.json (包管理配置文件)
+    - index.js  (包的入口文件)
+    - README.md (包的说明文档)
+
+### 使用require()加载自定义模块时，必须指定以 ./ 或 ../ 开头的路径标识符。在加载自定义模块时，如果没有指定./或../这样的路径标识符，则node会把它当作内置模块或第三方模块进行加载
+
+### 目录作为模块
+1. 在被加载的目录下查找一个叫做package.json的文件，并寻找main属性，作为require()加载的入口
+2. 如果目录里没有package.json文件，或者main入口不存在或无法解析，则Node.js将会试图加载目录下的index.js文件
+3. 上两步失败，打印错误
+
+
+# express
+    基于Node.js平台，快捷、开放、极简的web开发框架
+
+    http内置模块用起来很复杂开发效率低，express进行了进一步封装
