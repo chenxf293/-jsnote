@@ -30,6 +30,12 @@ app.get('/user/:id/:name', (req, res) => {
     res.send(req.params)
 })
 
+//在这里，调用express.static()方法，快速的对外提供静态资源
+//如果希望在托管的静态资源访问路径之前，挂载路径前缀，则可以使用如下第一行的方式
+
+app.use('/image',express.static('../git/images'))
+app.use(express.static('./source/clock'))
+
 //启动服务器
 app.listen(80,() => {
     console.log(`express server running at http://127.0.0.1`)
