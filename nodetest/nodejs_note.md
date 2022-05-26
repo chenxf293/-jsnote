@@ -254,12 +254,39 @@
 ### 中间件的分类
     1. 应用级别的中间件
         app.use(function(req, res, next) {})
+
     2. 路由级别的中间件
         router.use(function(req, res, next) {})
+
     3. 错误级别的中间件
         app.use(function(err, req, res, next) {})
 
-### express内置的中间件
-    1. express.static 快速托管静态资源的内置中间件
-    2. express.json 解析JSON格式的请求体数据
-    3. express.urlencoded 解析URL-encoded格式的请求体数据
+    4.express内置的中间件
+        - express.static 快速托管静态资源的内置中间件
+        - express.json 解析JSON格式的请求体数据  post 请求
+        - express.urlencoded 解析URL-encoded格式的请求体数据 post 请求
+
+    5.第三方中间件
+        非express官方内置的，而是由第三方开发出来的中间件，叫做第三方中间件
+        例如 body-parser
+
+### 自定义中间件
+
+    1. 定义中间件
+    2. 监听req的data事件
+    3. 监听res的end事件
+    4. 使用querystring模块解析请求体数据
+    5. 将解析出来的数据对象挂载为req.body
+    6. 将自定义中间件封装为模块
+
+
+# 跨域问题
+    CORS
+    使用cros中间件解决跨域问题
+    Cross-Origin Resource Sharing,跨域资源共享
+    由一系列HTTP响应头组成，这些HTTP响应头决定浏览器是否阻止前端JS代码跨域获取资源。
+    浏览器的同源安全策略默认会阻止网页“跨域”获取资源。但如果服务器配置了CORS相关的HTTP响应头，就可以解除浏览器的跨域访问限制。
+
+    注意点
+        1. CORS主要在服务器端经行配置，客户端浏览器无须做任何额外的配置，即可请求开启CORS的接口
+        2. CORS在浏览器中有兼容性。只有支持XMLHttpRequest Level2的浏览器，才能正常访问开启CORS的服务端接口
